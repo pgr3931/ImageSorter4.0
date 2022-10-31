@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "imageSorter4 (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "imageSorter4 (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
