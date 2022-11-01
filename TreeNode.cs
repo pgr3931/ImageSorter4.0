@@ -1,4 +1,4 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
 using Windows.Storage;
 
 namespace imageSorter4
@@ -12,7 +12,7 @@ namespace imageSorter4
         }
 
         public StorageFolder Folder { get; set; }
-        public ObservableCollection<TreeNode> Children { get; set; } = new ObservableCollection<TreeNode>();
+        public List<TreeNode> Children { get; set; } = new List<TreeNode>();
         public string Name { get; }
     }
 }

@@ -51,6 +51,7 @@ namespace imageSorter4
             AppWindow appWindow = AppWindow.GetFromWindowId(windowId);
             OverlappedPresenter presenter = (OverlappedPresenter)appWindow.Presenter;
             presenter.Maximize();
+            appWindow.SetIcon(System.IO.Path.Combine(Package.Current.InstalledLocation.Path, "Assets\\favicon.ico"));           
         }
 
         private Window m_window;

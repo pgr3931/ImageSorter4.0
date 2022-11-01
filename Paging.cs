@@ -1,21 +1,16 @@
-﻿using Microsoft.UI.Xaml.Media;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
-using Windows.Storage.FileProperties;
 
 namespace imageSorter4
 {
     public class Paging : INotifyPropertyChanged
     {
 
-        private int size;
+        private int size = 0;
 
-        public int Size {
+        public int Size
+        {
             get => size;
             set
             {
@@ -32,7 +27,7 @@ namespace imageSorter4
 
         public int Page
         {
-            get => page;
+            get => Math.Min(page, size);
             private set
             {
                 if (page != value)
@@ -43,20 +38,28 @@ namespace imageSorter4
             }
         }
 
-        public void Next()
+        public bool Next()
         {
+            if (Size <= 0) return false;
+
             if (page == Size)
                 Page = 1;
             else
                 Page++;
+
+            return true;
         }
 
-        public void Prev()
+        public bool Prev()
         {
+            if (Size <= 0) return false;
+
             if (page == 1)
                 Page = Size;
             else
                 Page--;
+
+            return true;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
